@@ -1,0 +1,16 @@
+.checkout-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 0.8em;
+  width: 500px;
+}
+
+.checkout-total {
+  margin-top: 20px;
+  text-align: right;
+}
+
+.container{
+  width: 580px;
+}

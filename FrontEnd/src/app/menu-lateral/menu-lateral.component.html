@@ -1,0 +1,10 @@
+<nav class="barra-lateral">
+  <ul>
+    <li [class.active]="isActive('/pesquisa')">
+      <a (click)="navigateTo('/pesquisa')">Pesquisa</a>
+    </li>
+    <li [class.active]="isActive('/criar-reserva')">
+      <a (click)="navigateTo('/criar-reserva')">Criar Reserva</a>
+    </li>
+  </ul>
+</nav>

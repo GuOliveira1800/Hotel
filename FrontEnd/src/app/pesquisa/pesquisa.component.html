@@ -1,0 +1,52 @@
+<div class="container">
+  <h2>Pesquisa de Reservas</h2>
+  <form (ngSubmit)="onSubmit()" class="example-form">
+    <section class="container-campos">
+      <mat-form-field class="example-full-width">
+        <mat-label>Nome</mat-label>
+        <input matInput type="text" [(ngModel)]="hospedeNome" name="hospedeNome">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Documento</mat-label>
+        <input matInput type="text" [(ngModel)]="hospedeDocumento" name="hospedeDocumento" />
+      </mat-form-field>
+    </section>
+    <section class="container-campos">
+    <mat-form-field class="example-full-width">
+      <mat-label>Telefone</mat-label>
+      <input matInput type="text" [(ngModel)]="hospedeTelefone" name="hospedeTelefone" />
+    </mat-form-field>
+
+    <mat-checkbox name="hospedeNoHotel" [(ngModel)]="hospedeNoHotel" (change)="onCheckboxChange('hospedeNoHotel')">
+      Hospedes que ainda estão no hotel
+    </mat-checkbox>
+    <mat-checkbox name="reservaNaoiniciada" [(ngModel)]="reservaNaoiniciada" (change)="onCheckboxChange('reservaNaoiniciada')">
+      Hospedes que não fizeram check-in
+    </mat-checkbox>
+    </section>
+    <button type="submit">Pesquisar</button>
+  </form>
+
+
+  <mat-card *ngIf="listaHospedes.length > 0">
+    <mat-card-title>Lista de Hóspedes</mat-card-title>
+    <br>
+    <mat-list>
+      <mat-list-item *ngFor="let item of listaHospedes">
+        <div class="hospede-info">
+          <span><strong>Nome:</strong> {{ item.hospede.nome }}</span>
+          <span><strong>Documento:</strong> {{ item.hospede.documento }}</span>
+          <span><strong>Telefone:</strong> {{ item.hospede.telefone }}</span>
+          <button mat-button color="primary" (click)="onCheckIn(item)">Check-in</button>
+          <button mat-button color="accent" (click)="onCheckOut(item)">Check-out</button>
+        </div>
+      </mat-list-item>
+    </mat-list>
+  </mat-card>
+
+  <!-- Mensagem caso não haja hóspedes na lista -->
+  <mat-card *ngIf="listaHospedes.length === 0">
+    <mat-card-title>Nenhum hóspede encontrado</mat-card-title>
+  </mat-card>
+
+</div>

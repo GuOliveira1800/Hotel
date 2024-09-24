@@ -1,0 +1,23 @@
+<div class="container">
+  <h3 mat-dialog-title>Detalhes do Check-out</h3>
+  <div mat-dialog-content>
+    <mat-list>
+      <mat-list-item *ngFor="let item of data">
+        <div class="checkout-info">
+          <span><strong>Descrição:</strong> {{ item.descricao }}</span>
+          <span><strong>Quantidade:</strong> {{ item.quantidade }}</span>
+          <span><strong>Valor:</strong> {{ item.valor | currency }}</span>
+        </div>
+      </mat-list-item>
+    </mat-list>
+
+    <!-- Valor total -->
+    <div class="checkout-total">
+      <strong>Total:</strong> {{ calcularTotal(data) | currency }}
+    </div>
+  </div>
+
+  <div mat-dialog-actions>
+    <button mat-button mat-dialog-close>OK</button>
+  </div>
+</div>

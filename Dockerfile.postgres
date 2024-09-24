@@ -1,0 +1,14 @@
+# Use a imagem oficial do PostgreSQL como base
+FROM postgres:13
+
+# Defina variáveis de ambiente
+ENV POSTGRES_DB hotel
+ENV POSTGRES_USER user
+ENV POSTGRES_PASSWORD mypass
+
+# Copie scripts de inicialização (opcional)
+# Você pode adicionar scripts de inicialização SQL na pasta ./initdb.d
+# COPY ./initdb.d /docker-entrypoint-initdb.d/
+
+# Exponha a porta padrão do PostgreSQL
+EXPOSE 5432

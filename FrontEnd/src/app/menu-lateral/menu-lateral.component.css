@@ -1,0 +1,9 @@
+.active {
+  font-weight: bold; /* Destaca o item ativo com texto em negrito */
+  color: #03244c; /* Muda a cor do texto do item ativo */
+  background-color: #003685; /* Fundo diferente para o item ativo */
+}
+.barra-lateral{
+  background-color: #0056b3;
+  height: 100%;
+}

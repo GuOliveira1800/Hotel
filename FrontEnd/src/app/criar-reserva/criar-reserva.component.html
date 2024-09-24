@@ -1,0 +1,47 @@
+<div class="container">
+  <h2>Pesquisa de Reservas</h2>
+  <form (ngSubmit)="onSubmit()" class="example-form" #formReserva="ngForm">
+    <section class="container-campos">
+      <mat-form-field class="example-full-width">
+        <mat-label>Data Inicial</mat-label>
+        <input matInput type="date" [(ngModel)]="reserva.dataInicial" name="dataInicial" required>
+        <mat-error *ngIf="formReserva.submitted && !reserva.dataInicial">Data Inicial é obrigatória</mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Data Final</mat-label>
+        <input matInput type="date" [(ngModel)]="reserva.dataFinal" name="dataFinal" required />
+        <mat-error *ngIf="formReserva.submitted && !reserva.dataFinal">Data Final é obrigatória</mat-error>
+      </mat-form-field>
+    </section>
+    <section class="container-campos">
+      <mat-form-field class="example-full-width">
+        <mat-label>Nome</mat-label>
+        <input matInput type="text" [(ngModel)]="reserva.hospede.nome" name="nome" required>
+        <mat-error *ngIf="formReserva.submitted && !reserva.hospede.nome">Nome é obrigatório</mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Documento</mat-label>
+        <input matInput type="text" [(ngModel)]="reserva.hospede.documento" name="documento" required />
+        <mat-error *ngIf="formReserva.submitted && !reserva.hospede.documento">Documento é obrigatório</mat-error>
+      </mat-form-field>
+    </section>
+    <section class="container-campos">
+      <mat-form-field class="example-full-width">
+        <mat-label>Telefone</mat-label>
+        <input matInput type="text" [(ngModel)]="reserva.hospede.telefone" name="telefone" required />
+        <mat-error *ngIf="formReserva.submitted && !reserva.hospede.telefone">Telefone é obrigatório</mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input matInput type="text" [(ngModel)]="reserva.hospede.email" name="email" required />
+        <mat-error *ngIf="formReserva.submitted && !reserva.hospede.email">Email é obrigatório</mat-error>
+      </mat-form-field>
+    </section>
+    <section>
+      <mat-checkbox name="reservaNaoiniciada" [(ngModel)]="reserva.temEstacionamento">
+        Tem estacionamento
+      </mat-checkbox>
+    </section>
+    <button mat-button color="primary" type="submit">Salvar</button>
+  </form>
+</div>
